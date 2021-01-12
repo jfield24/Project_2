@@ -52,7 +52,13 @@ def api():
     #return "API successful!"
     return redirect("/")
 
-
+### We were unable here to connect the selection to rest of the code (even with the global select variable)	
+@app.route("/select", methods=['POST', 'GET'])	
+def select():	
+    if request.method == "POST":	
+        text = request.select.get('stocktick')	
+        return jsonify(text)
+    
 @app.route("/data")
 def data():
 
